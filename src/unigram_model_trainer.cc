@@ -116,7 +116,7 @@ TrainerModel::SentencePieces Trainer::MakeSeedSentencePieces() const {
     array.push_back(kSentenceBoundary);  // sentence boundary marker.
   }
 
-  const int n = array.size();
+  const size_t n = array.size();
   std::vector<int> SA(n);  // suffix array
   std::vector<int> L(n);   // left boundaries of internal node
   std::vector<int> R(n);   // right boundaries of internal node
@@ -432,7 +432,7 @@ TrainerModel::SentencePieces Trainer::FinalizeSentencePieces(
     }
   }
 
-  const int vocab_size_size = trainer_spec_.vocab_size() - meta_pieces_.size();
+  const size_t vocab_size_size = trainer_spec_.vocab_size() - meta_pieces_.size();
   CHECK_GT(vocab_size_size, 0);
 
   // Then keeps sentencepieces with higher scores.
